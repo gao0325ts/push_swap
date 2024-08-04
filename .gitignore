@@ -1,0 +1,8 @@
+*
+
+!libft/
+!libft/*
+!includes/
+!includes/*.h
+!srcs/
+!srcs/*.c
