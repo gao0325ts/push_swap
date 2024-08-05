@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:41:18 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 00:10:38 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/06 00:19:38 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,9 @@ void check_duplication(t_stack **list)
 //         current = current->next;
 //     }
 
+//     clear_nodes(list_a);
+//     clear_nodes(list_b);
+//     free(list_a);
+//     free(list_b);
 //     return (0);
 // }

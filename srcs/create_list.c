@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newlist.c                                          :+:      :+:    :+:   */
+/*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:24:26 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 00:04:54 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/06 00:18:09 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	add_node(t_stack **list_b, t_stack *new_node)
 }
 
 // #include <stdio.h>
-// int main()
+// int main(int ac, char **av)
 // {
-// 	int ac = 5;
+// 	(void)av;
 // 	t_stack **list_a = create_list(ac);
 // 	t_stack *current = *list_a;
 
