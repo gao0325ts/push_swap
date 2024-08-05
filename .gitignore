@@ -6,3 +6,5 @@
 !includes/*.h
 !srcs/
 !srcs/*.c
+!srcs/*/
+!srcs/*/*

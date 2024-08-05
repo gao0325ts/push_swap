@@ -6,11 +6,11 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:20:56 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 03:06:15 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/06 03:09:49 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "oparations.h"
 
 void sa(t_stack **a)
 {
