@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   common.h                                           :+:      :+:    :+:   */
+/*   check_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 14:29:14 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 18:49:52 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/09 13:52:24 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/09 19:53:56 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMMON_H
-# define COMMON_H
+#include "sort.h"
 
-# include "../libft/libft.h"
-
-# ifndef T_STACK_DEFINED
-#  define T_STACK_DEFINED
-typedef struct s_stack
+int check_size(t_stack **stack_a)
 {
-	int				coord;
-	int				value;
-	struct s_stack	*next;
-}					t_stack;
-# endif
+	int size;
+	t_stack *temp;
 
-void    assign_coord(t_stack **stack);
-void	exit_with_error(void);
-void	clear_nodes(t_stack **list);
-
-#endif
+	// if (!*stack_a)
+	// 	return (0);
+	size = 0;
+	temp = *stack_a;
+	while (temp)
+	{
+		size++;
+		temp = temp->next;
+	}
+	return (size);
+}

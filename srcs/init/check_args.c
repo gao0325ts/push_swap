@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/04 14:05:04 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/12 18:27:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	is_int(char **av)
 	while (av[i])
 	{
 		num = ft_atoll(av[i]);
-		if (num > INT_MAX || num < INT_MIN)
+		if (num == 0 || num > INT_MAX || num < INT_MIN)
 			exit_with_error();
 		i++;
 	}

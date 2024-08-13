@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:41:18 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 00:19:38 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/09 18:12:27 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
-#include <stdio.h>
 
 t_stack**    init_a(int ac, char **av)
 {
     t_stack  **list_a;
     
+    if (!*av || !av)
+        exit_with_error();
     list_a = create_list(ac);
     assign_value(list_a, av);
     check_duplication(list_a);
     assign_coord(list_a);
+    is_sorted(list_a);
     return (list_a);
-}
-
-t_stack**    init_b(int ac)
-{
-    t_stack  **list_b;
-    
-    list_b = create_list(ac);
-    return (list_b);
 }
 
 void    assign_value(t_stack **list, char **av)
@@ -44,28 +38,6 @@ void    assign_value(t_stack **list, char **av)
         current->value = ft_atoi(av[i]);
         current = current->next;
         i++;
-    }
-}
-
-void    assign_coord(t_stack **list)
-{
-    int count;
-    t_stack  *current;
-    t_stack  *compare;
-    
-    current = *list;
-    while (current)
-    {
-        count = 1;
-        compare = *list;
-        while (compare)
-        {
-            if (current->value > compare->value)
-                count++;
-            compare = compare->next;
-        }
-        current->coord = count;
-        current = current->next;
     }
 }
 
@@ -88,32 +60,19 @@ void check_duplication(t_stack **list)
     }
 }
 
-// #include <stdio.h>
-// int main(int ac, char **av)
-// {
-//     t_stack **list_a = init_a(ac, av);
-//     t_stack **list_b = init_b(ac);
-//     t_stack *current;
+void is_sorted(t_stack **stack)
+{
+    int count;
+    t_stack *current;
 
-//     current = *list_a;
-//     puts("---list_a---");
-//     while (current)
-//     {
-//         printf("value: %d, coord: %d\n", current->value, current->coord);
-//         current = current->next;
-//     }
-
-//     current = *list_b;
-//     puts("---list_b---");
-//     while (current)
-//     {
-//         printf("value: %d, coord: %d\n", current->value, current->coord);
-//         current = current->next;
-//     }
-
-//     clear_nodes(list_a);
-//     clear_nodes(list_b);
-//     free(list_a);
-//     free(list_b);
-//     return (0);
-// }
+    count = 1;
+    current = *stack;
+    while (current->next)
+    {
+        if (current->coord != count)
+            return ;
+        count++;
+        current = current->next;
+    }
+    exit_with_error();
+}

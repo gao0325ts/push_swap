@@ -6,11 +6,11 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:20:56 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 03:09:49 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/09 14:32:33 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "oparations.h"
+#include "operations.h"
 
 void sa(t_stack **a)
 {
@@ -24,6 +24,7 @@ void sa(t_stack **a)
     first->next = second->next;
     second->next = first;
     *a = second;
+    ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
 void sb(t_stack **b)
@@ -38,12 +39,14 @@ void sb(t_stack **b)
     first->next = second->next;
     second->next = first;
     *b = second;
+    ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
 void ss(t_stack **a, t_stack **b)
 {
     sa(a);
     sb(b);
+    ft_putendl_fd("ss", STDOUT_FILENO);
 }
 
 // #include <stdio.h>

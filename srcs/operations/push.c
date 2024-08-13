@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:48:49 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 12:16:45 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/09 14:31:59 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void pa(t_stack **a, t_stack **b)
     *b = (*b)->next;
     tmp->next = *a;
     *a = tmp;
+    ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
 void pb(t_stack **a, t_stack **b)
@@ -34,6 +35,7 @@ void pb(t_stack **a, t_stack **b)
     *a = (*a)->next;
     tmp->next = *b;
     *b = tmp;
+    ft_putendl_fd("pb", STDOUT_FILENO);
 }
 
 // #include <stdio.h>

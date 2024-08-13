@@ -7,7 +7,7 @@ RM = rm -rf
 LIBFT_DIR = ./libft
 LIBFT = libft.a
 
-SRCS = $(wildcard srcs/*.c)
+SRCS = $(wildcard srcs/*/*.c) srcs/main.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I ./includes -I $(LIBFT_DIR)
 

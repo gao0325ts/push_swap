@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:35:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 12:07:11 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/09 14:32:15 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void rra(t_stack **a)
     second_last->next = NULL;
     last->next = *a;
     *a = last;
+    ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
 void rrb(t_stack **b)
@@ -48,12 +49,14 @@ void rrb(t_stack **b)
     second_last->next = NULL;
     last->next = *b;
     *b = last;
+    ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
 void rrr(t_stack **a, t_stack **b)
 {
     rra(a);
     rrb(b);
+    ft_putendl_fd("rrr", STDOUT_FILENO);
 }
 
 // #include <stdio.h>
