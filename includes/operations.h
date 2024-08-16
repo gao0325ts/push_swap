@@ -6,12 +6,12 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 03:00:17 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 00:06:20 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:36:48 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPARATIONS_H
-# define OPARATIONS_H
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
 # include "common.h"
 

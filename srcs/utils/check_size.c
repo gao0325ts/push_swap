@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:52:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 00:11:44 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:38:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_size(t_stack **stack_a)
 {
-	int size;
-	t_stack *temp;
+	int		size;
+	t_stack	*temp;
 
 	// if (!*stack_a)
 	// 	return (0);

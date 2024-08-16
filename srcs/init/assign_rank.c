@@ -15,9 +15,9 @@
 
 void	assign_rank(t_stack **stack)
 {
-	long long count;
-	t_stack *current;
-	t_stack *compare;
+	long long	count;
+	t_stack		*current;
+	t_stack		*compare;
 
 	current = *stack;
 	while (current)
