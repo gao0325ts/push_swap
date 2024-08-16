@@ -6,57 +6,57 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:35:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 14:32:15 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void rra(t_stack **a)
+void	rra(t_stack **a)
 {
-    t_stack *last;
-    t_stack *second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
-    if (!*a || !(*a)->next)
-        return;
-    last = *a;
-    second_last = NULL; 
-    while (last->next)
-    {
-        second_last = last;
-        last = last->next;
-    }
-    second_last->next = NULL;
-    last->next = *a;
-    *a = last;
-    ft_putendl_fd("rra", STDOUT_FILENO);
+	if (!*a || !(*a)->next)
+		return ;
+	last = *a;
+	second_last = NULL;
+	while (last->next)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = *a;
+	*a = last;
+	ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
-void rrb(t_stack **b)
+void	rrb(t_stack **b)
 {
-    t_stack *last;
-    t_stack *second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
-    if (!*b || !(*b)->next)
-        return;
-    last = *b;
-    second_last = NULL;
-    while (last->next)
-    {
-        second_last = last;
-        last = last->next;
-    }
-    second_last->next = NULL;
-    last->next = *b;
-    *b = last;
-    ft_putendl_fd("rrb", STDOUT_FILENO);
+	if (!*b || !(*b)->next)
+		return ;
+	last = *b;
+	second_last = NULL;
+	while (last->next)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = *b;
+	*b = last;
+	ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
-void rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-    rra(a);
-    rrb(b);
-    ft_putendl_fd("rrr", STDOUT_FILENO);
+	rra(a);
+	rrb(b);
+	ft_putendl_fd("rrr", STDOUT_FILENO);
 }
 
 // #include <stdio.h>
@@ -66,7 +66,7 @@ void rrr(t_stack **a, t_stack **b)
 // {
 //     while (stack)
 //     {
-//         printf("( [%d] %d ) -> ", stack->coord, stack->value);
+//         printf("( [%d] %d ) -> ", stack->rank, stack->value);
 //         stack = stack->next;
 //     }
 //     printf("NULL\n");
@@ -88,7 +88,7 @@ void rrr(t_stack **a, t_stack **b)
 
 //     puts("-----rrb-----");
 //     puts("Before:");
-//     print_stack(*b);    
+//     print_stack(*b);
 //     rrb(b);
 //     puts("After:");
 //     print_stack(*b);
@@ -110,5 +110,5 @@ void rrr(t_stack **a, t_stack **b)
 //     free(a2);
 //     clear_nodes(b2);
 //     free(b2);
-//     return 0;
+//     return (0);
 // }

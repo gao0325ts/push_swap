@@ -6,30 +6,29 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:59:40 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 18:06:41 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-t_stack**    init_b(void)
+t_stack	**init_b(void)
 {
-    t_stack  **list_b;
-    
-    list_b = (t_stack **)malloc(sizeof(t_stack *));
-    if (!list_b)
-        return (NULL);
-    *list_b = NULL;
-    return (list_b);
+	t_stack	**list_b;
+
+	list_b = (t_stack **)malloc(sizeof(t_stack *));
+	if (!list_b)
+		return (NULL);
+	*list_b = NULL;
+	return (list_b);
 }
 
 // #include <stdio.h>
-
 // void print_stack(t_stack *stack)
 // {
 //     while (stack)
 //     {
-//         printf("%d (%d) -> ", stack->value, stack->coord);
+//         printf("%d (%d) -> ", stack->value, stack->rank);
 //         stack = stack->next;
 //     }
 //     printf("NULL\n");

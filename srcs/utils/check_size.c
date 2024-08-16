@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:52:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 19:53:56 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 00:11:44 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-int check_size(t_stack **stack_a)
+int	check_size(t_stack **stack_a)
 {
 	int size;
 	t_stack *temp;

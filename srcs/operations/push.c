@@ -6,36 +6,36 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:48:49 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 14:31:59 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!*b)
-        return;
-    tmp = *b;
-    *b = (*b)->next;
-    tmp->next = *a;
-    *a = tmp;
-    ft_putendl_fd("pa", STDOUT_FILENO);
+	if (!*b)
+		return ;
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = *a;
+	*a = tmp;
+	ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
-void pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!*a)
-        return;
-    tmp = *a;
-    *a = (*a)->next;
-    tmp->next = *b;
-    *b = tmp;
-    ft_putendl_fd("pb", STDOUT_FILENO);
+	if (!*a)
+		return ;
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = *b;
+	*b = tmp;
+	ft_putendl_fd("pb", STDOUT_FILENO);
 }
 
 // #include <stdio.h>
@@ -45,7 +45,7 @@ void pb(t_stack **a, t_stack **b)
 // {
 //     while (stack)
 //     {
-//         printf("( [%d] %d ) -> ", stack->coord, stack->value);
+//         printf("( [%d] %d ) -> ", stack->rank, stack->value);
 //         stack = stack->next;
 //     }
 //     printf("NULL\n");
@@ -57,7 +57,7 @@ void pb(t_stack **a, t_stack **b)
 //     t_stack **b = init_a(ac, av);
 //     t_stack **a2 = init_a(ac, av);
 //     t_stack **b2 = init_a(ac, av);
-    
+
 //     puts("-----pa-----");
 //     puts("Before:");
 //     print_stack(*a);
@@ -84,5 +84,5 @@ void pb(t_stack **a, t_stack **b)
 //     free(a2);
 //     clear_nodes(b2);
 //     free(b2);
-//     return 0;
+//     return (0);
 // }

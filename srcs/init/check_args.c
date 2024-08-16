@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/12 18:27:26 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 00:07:44 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	is_int(char **av)
 	}
 }
 
-// // // Test code
 // int main(int ac, char **av)
 // {
 // 	check_args(ac, av);

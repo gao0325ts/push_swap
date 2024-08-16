@@ -6,54 +6,57 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:45:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/16 22:13:26 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void sort_2(t_stack **a)
-{    
-    int first = (*a)->coord;
-    int second = (*a)->next->coord;
-
-    if (first > second)
-        sa(a);
-}
-
-void sort_3(t_stack **a)
+void	sort_2(t_stack **a)
 {
-    int first = (*a)->coord;
-    int second = (*a)->next->coord;
-    int third = (*a)->next->next->coord;
+	int	first;
+	int	second;
 
-    if (first > second && second < third && first < third)
-        sa(a);
-    else if (first > second && second > third && first > third)
-    {
-        sa(a);
-        rra(a);
-    }
-    else if (first > second && second < third && first > third)
-        ra(a);
-    else if (first < second && second > third && first < third)
-    {
-        sa(a);
-        ra(a);
-    }
-    else if (first < second && second > third && first > third)
-        rra(a);
+	first = (*a)->rank;
+	second = (*a)->next->rank;
+	if (first > second)
+		sa(a);
 }
 
+void	sort_3(t_stack **a)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*a)->rank;
+	second = (*a)->next->rank;
+	third = (*a)->next->next->rank;
+	if (first > second && second < third && first < third)
+		sa(a);
+	else if (first > second && second > third && first > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && second < third && first > third)
+		ra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > third && first > third)
+		rra(a);
+}
 
 // #include "init.h"
 // #include <stdio.h>
-
 // void print_stack(t_stack *stack)
 // {
 //     while (stack)
 //     {
-//         printf("%d (%d) -> ", stack->value, stack->coord);
+//         printf("%d (%d) -> ", stack->value, stack->rank);
 //         stack = stack->next;
 //     }
 //     printf("NULL\n");
@@ -64,7 +67,7 @@ void sort_3(t_stack **a)
 //     if (ac != 3 && ac != 4)
 //     {
 //         puts("Please input 3 numbers.");
-//         return 1;
+//         return (1);
 //     }
 //     t_stack **a1 = init_a(ac, av);
 //     puts("---Before---");
@@ -77,5 +80,5 @@ void sort_3(t_stack **a)
 //     puts("---After---");
 //     print_stack(*a1);
 
-//     return 0;
+//     return (0);
 // }

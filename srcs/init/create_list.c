@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:24:26 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/06 00:18:09 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*create_node(void)
 	if (!new_node)
 		return (NULL);
 	new_node->value = 0;
-	new_node->coord = 0;
+	new_node->rank = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -75,7 +75,7 @@ void	add_node(t_stack **list_b, t_stack *new_node)
 
 // 	while (current)
 // 	{
-// 		printf("number: %d, coord: %d\n", current->value, current->coord);
+// 		printf("number: %d, rank: %d\n", current->value, current->rank);
 // 		current = current->next;
 // 	}
 // 	clear_nodes(list_a);

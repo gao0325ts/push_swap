@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:44:53 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/04 13:55:25 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 00:11:24 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	exit_with_error(void)
 	exit(1);
 }
 
-// // Test code
 // int main()
 // {
 //     exit_with_error();

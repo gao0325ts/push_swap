@@ -6,51 +6,54 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:29:01 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/14 16:29:55 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void    sort_small(t_stack **a, t_stack **b)
+void	sort_small(t_stack **a, t_stack **b)
 {
-    t_stack *min;
-    while (check_size(a) > 3)
-    {
-        min = find_min(a);
-        push_min_to_b(a, b, min);
-    }
-    sort_3(a);
-    while (check_size(b) > 0)
-        pa(a, b);
+	t_stack	*min;
+
+	while (check_size(a) > 3)
+	{
+		min = find_min(a);
+		push_min_to_b(a, b, min);
+	}
+	sort_3(a);
+	while (check_size(b) > 0)
+		pa(a, b);
 }
 
-int check_distance_to_end(t_stack *a, int size, t_stack *target)
+int	check_distance_to_end(t_stack *a, int size, t_stack *target)
 {
-    int distance = 0;
-    while (a && a != target)
-    {
-        distance++;
-        a = a->next;
-    }
-    if (distance > size / 2)
-        return (size - distance);
-    return distance;
+	int	distance;
+
+	distance = 0;
+	while (a && a != target)
+	{
+		distance++;
+		a = a->next;
+	}
+	if (distance > size / 2)
+		return (size - distance);
+	return (distance);
 }
 
-t_stack *find_min(t_stack **a)
+t_stack	*find_min(t_stack **a)
 {
-    t_stack *min;
+	t_stack	*min;
 
-	assign_coord(a);
+	assign_rank(a);
 	min = *a;
-    while (min)
-    {
-        if (min->coord == 1)
+	while (min)
+	{
+		if (min->rank == 1)
 			break ;
-        min = min->next;
-    }
-    return min;
+		min = min->next;
+	}
+	return (min);
 }
 
 void	push_min_to_b(t_stack **a, t_stack **b, t_stack *min)
@@ -90,12 +93,11 @@ int	find_distance_to_top(t_stack *a, t_stack *target)
 
 // #include "init.h"
 // #include <stdio.h>
-
 // void	print_stack(t_stack *stack)
 // {
 // 	while (stack)
 // 	{
-// 		printf("%d (%d) -> ", stack->value, stack->coord);
+// 		printf("%d (%d) -> ", stack->value, stack->rank);
 // 		stack = stack->next;
 // 	}
 // 	printf("NULL\n");

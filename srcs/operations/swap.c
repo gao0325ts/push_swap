@@ -6,47 +6,47 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:20:56 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 14:32:33 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 00:09:09 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
-    t_stack *first;
-    t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
-    if (!a || !*a || !(*a)->next)
-        return;
-    first = *a;
-    second = (*a)->next;
-    first->next = second->next;
-    second->next = first;
-    *a = second;
-    ft_putendl_fd("sa", STDOUT_FILENO);
+	if (!a || !*a || !(*a)->next)
+		return ;
+	first = *a;
+	second = (*a)->next;
+	first->next = second->next;
+	second->next = first;
+	*a = second;
+	ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
-    t_stack *first;
-    t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
-    if (!b || !*b || !(*b)->next)
-        return;
-    first = *b;
-    second = (*b)->next;
-    first->next = second->next;
-    second->next = first;
-    *b = second;
-    ft_putendl_fd("sb", STDOUT_FILENO);
+	if (!b || !*b || !(*b)->next)
+		return ;
+	first = *b;
+	second = (*b)->next;
+	first->next = second->next;
+	second->next = first;
+	*b = second;
+	ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
-    sa(a);
-    sb(b);
-    ft_putendl_fd("ss", STDOUT_FILENO);
+	sa(a);
+	sb(b);
+	ft_putendl_fd("ss", STDOUT_FILENO);
 }
 
 // #include <stdio.h>
@@ -72,5 +72,5 @@ void ss(t_stack **a, t_stack **b)
 //     }
 //     clear_nodes(a);
 //     free(a);
-//     return 0;
+//     return (0);
 // }
