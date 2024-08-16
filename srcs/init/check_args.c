@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 00:07:44 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 08:36:20 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	check_args(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac <= 2)
 		exit(0);
-	if (ac == 2)
-		exit_with_error();
 	is_digit_only(av);
 	is_int(av);
 }
@@ -52,7 +50,7 @@ void	is_int(char **av)
 	while (av[i])
 	{
 		num = ft_atoll(av[i]);
-		if (num == 0 || num > INT_MAX || num < INT_MIN)
+		if (num > INT_MAX || num < INT_MIN)
 			exit_with_error();
 		i++;
 	}

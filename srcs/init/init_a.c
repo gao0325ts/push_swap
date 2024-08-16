@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:41:18 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 08:36:01 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	is_sorted(t_stack **stack)
 		count++;
 		current = current->next;
 	}
-	exit_with_error();
+	exit(0);
 }
