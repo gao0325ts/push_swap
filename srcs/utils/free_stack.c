@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_nodes.c                                      :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:53:32 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 00:11:28 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 08:43:20 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,12 @@ void	clear_nodes(t_stack **list)
 		free(current);
 		current = next;
 	}
+}
+
+void	free_stack(t_stack **a, t_stack **b)
+{
+	clear_nodes(a);
+	clear_nodes(b);
+	free(a);
+	free(b);
 }

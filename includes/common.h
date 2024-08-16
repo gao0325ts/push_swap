@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:29:14 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:41:10 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 08:43:17 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ typedef struct s_info
 void				assign_rank(t_stack **stack);
 void				exit_with_error(void);
 void				clear_nodes(t_stack **list);
+void				free_stack(t_stack **a, t_stack **b);
 
 #endif
