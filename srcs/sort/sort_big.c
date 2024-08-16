@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:57:06 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,36 @@ bool	is_big_upside(t_stack **b, int max)
 	return (false);
 }
 
-void	push_back_to_a(t_stack **a, t_stack **b)
+void	handle_max_cases(t_stack **a, t_stack **b, int *max, int *pushed)
 {
-	int		max;
+	pa(a, b);
+	(*max)--;
+	if (*pushed == 1)
+	{
+		(*max)--;
+		*pushed = 0;
+		sa(a);
+	}
+	else if (*pushed == 2)
+	{
+		*max -= 2;
+		*pushed = 0;
+		sa(a);
+		rra(a);
+	}
+}
+
+void	push_back_to_a(t_stack **a, t_stack **b, int max)
+{
 	int		pushed;
 	t_stack	*target;
 
-	max = check_size(b);
 	pushed = 0;
 	while (check_size(b) > 0)
 	{
-        // TODO separate func
 		target = *b;
 		if (target->rank == max)
-		{
-			pa(a, b);
-			max--;
-			if (pushed == 1)
-			{
-				max--;
-				pushed = 0;
-				sa(a);
-			}
-			else if (pushed == 2)
-			{
-				max -= 2;
-				pushed = 0;
-				sa(a);
-				rra(a);
-			}
-		}
+			handle_max_cases(a, b, &max, &pushed);
 		else if (target->rank == max - 2 && pushed == 1)
 		{
 			pa(a, b);
@@ -75,55 +75,55 @@ void	push_back_to_a(t_stack **a, t_stack **b)
 			pushed = 1;
 		}
 		else if (is_big_upside(b, max))
-		{
 			rb(b);
-		}
 		else
 			rrb(b);
 	}
 }
 
-void	divide_to_blocks(t_stack **a, t_stack **b, int blkcount, int size,
-		int blk, int blksize)
+void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i)
 {
 	int	range;
 
-	range = (size / blk) * blkcount;
-	if (blkcount == blk)
-		range = size - 3;
-	while (check_size(b) < range && blkcount <= blk)
+	range = (i->size / i->blk) * i->blkcount;
+	if (i->blkcount == i->blk)
+		range = i->size - 3;
+	while (check_size(b) < range && i->blkcount <= i->blk)
 	{
 		if ((*a)->rank <= range)
 		{
 			pb(a, b);
-			if (check_size(b) > 1 && (*b)->rank > range - blksize)
+			if (check_size(b) > 1 && (*b)->rank > range - i->blksize)
 				rb(b);
 		}
 		else
 			ra(a);
 	}
-	blkcount++;
+	i->blkcount++;
 	if (check_size(a) == 3)
 		sort_3(a);
-	if (blkcount <= blk)
-		divide_to_blocks(a, b, blkcount, size, blk, blksize);
+	if (i->blkcount <= i->blk)
+		divide_to_blocks(a, b, i);
 }
 
 void	sort_big(t_stack **a, t_stack **b)
 {
-	int	blkcount;
-	int	size;
-	int	blk;
-	int	blksize;
+	t_info	*i;
 
-	blkcount = 1;
-	size = check_size(a);
-	if (size <= 100)
-		blk = 4;
+	i = (t_info *)malloc(sizeof(t_info));
+	if (!i)
+	{
+		return ;
+	}
+	i->blkcount = 1;
+	i->size = check_size(a);
+	if (i->size <= 100)
+		i->blk = 4;
 	else
-		blk = 8;
-	blksize = (size / blk) / 2;
+		i->blk = 8;
+	i->blksize = (i->size / i->blk) / 2;
 	assign_rank(a);
-	divide_to_blocks(a, b, blkcount, size, blk, blksize);
-	push_back_to_a(a, b);
+	divide_to_blocks(a, b, i);
+	push_back_to_a(a, b, check_size(b));
+	free(i);
 }

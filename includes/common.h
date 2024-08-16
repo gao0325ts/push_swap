@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:29:14 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:39:09 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:41:10 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 # endif
+
+typedef struct s_info
+{
+	int				size;
+	int				blksize;
+	int				blk;
+	int				blkcount;
+}					t_info;
 
 void				assign_rank(t_stack **stack);
 void				exit_with_error(void);

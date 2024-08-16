@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:36:11 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:33:26 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 07:56:45 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	push_min_to_b(t_stack **a, t_stack **b, t_stack *min);
 int		find_distance_to_top(t_stack *a, t_stack *target);
 
 bool	is_big_upside(t_stack **b, int max);
-void	push_back_to_a(t_stack **a, t_stack **b);
-void	divide_to_blocks(t_stack **a, t_stack **b, int blkcount, int size,
-			int blk, int blksize);
+void	push_back_to_a(t_stack **a, t_stack **b, int max);
+void	handle_max_cases(t_stack **a, t_stack **b, int *max, int *pushed);
+void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i);
 void	sort_big(t_stack **a, t_stack **b);
 
 #endif
