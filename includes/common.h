@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:29:14 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 18:49:52 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/14 18:42:20 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #  define T_STACK_DEFINED
 typedef struct s_stack
 {
-	int				coord;
+	int				coord; // FIXME: change to long or ll (because of range of int)
 	int				value;
 	struct s_stack	*next;
 }					t_stack;
@@ -28,5 +28,8 @@ typedef struct s_stack
 void    assign_coord(t_stack **stack);
 void	exit_with_error(void);
 void	clear_nodes(t_stack **list);
+
+// TODO: remove
+void print_stack(t_stack *stack);
 
 #endif

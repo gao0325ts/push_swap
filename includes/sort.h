@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:36:11 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/14 03:21:01 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/16 22:20:52 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,5 @@ int		find_distance_to_top(t_stack *a, t_stack *target);
 int check_distance_to_end(t_stack *a, int size, t_stack *target);
 
 void	sort_big(t_stack **a, t_stack **b);
-t_stack *get_last_element(t_stack **stack);
-t_stack	*find_by_coord(t_stack **a, int min, int max);
-void push_max_to_a(t_stack **a, t_stack **b, t_stack *max);
-t_stack *find_max(t_stack **b);
 
 #endif

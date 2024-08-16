@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:45:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/09 19:32:59 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/16 22:13:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,28 @@ void sort_2(t_stack **a)
 
 void sort_3(t_stack **a)
 {
-    assign_coord(a);
     int first = (*a)->coord;
     int second = (*a)->next->coord;
     int third = (*a)->next->next->coord;
 
-    if (first == 2 && second == 1 && third == 3)
+    if (first > second && second < third && first < third)
         sa(a);
-    else if (first == 3 && second == 2 && third == 1)
+    else if (first > second && second > third && first > third)
     {
         sa(a);
         rra(a);
     }
-    else if (first == 3 && second == 1 && third == 2)
+    else if (first > second && second < third && first > third)
         ra(a);
-    else if (first == 1 && second == 3 && third == 2)
+    else if (first < second && second > third && first < third)
     {
         sa(a);
         ra(a);
     }
-    else if (first == 2 && second == 3 && third == 1)
+    else if (first < second && second > third && first > third)
         rra(a);
 }
+
 
 // #include "init.h"
 // #include <stdio.h>

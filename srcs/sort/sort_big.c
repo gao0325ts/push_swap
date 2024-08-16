@@ -5,130 +5,113 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 00:31:50 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/14 03:13:18 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/16 22:21:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 #include <stdio.h>
+#include <stdbool.h>
 
-void	sort_big(t_stack **a, t_stack **b)
+bool is_big_upside(t_stack **b, int max)
 {
-	int min_coord = 1;
-	int max_coord = min_coord + check_size(a) / 8;
-
-    while (check_size(a) > 0)
+    t_stack *current = *b;
+    int i = 0;
+    int half_size = max / 2;
+    while (i < half_size)
     {
-        t_stack *target = find_by_coord(a, min_coord, max_coord);
-		if (!target)
-			return ;
-		
-		t_stack *top_b = *b;
-		t_stack *bottom_b = get_last_element(b);
-
-		if (top_b && bottom_b)
-		{
-			int diff_top = target->coord - top_b->coord;
-			int diff_bottom = target->coord - bottom_b->coord;
-
-			if (diff_top < 0)
-				diff_top = -diff_top;
-			if (diff_bottom < 0)
-				diff_bottom = -diff_bottom;
-			if (diff_bottom < diff_top)
-			{
-				rb(b);
-			}
-		}
-		push_min_to_b(a, b, target);
-	}
-	
-	while (check_size(b) > 0)
-	{
-		t_stack *max = find_by_coord(b, check_size(b), check_size(b));
-		push_max_to_a(a, b, max);
-	}
-}
-
-t_stack *get_last_element(t_stack **stack)
-{
-    if (*stack == NULL)
-        return NULL;
-
-    t_stack *current = *stack;
-
-    while (current->next != NULL)
-    {
+        if (current->coord == max)
+        {
+            return true;
+        }
         current = current->next;
+        i++;
     }
-
-    return current;  // 最後の要素を返す
+    return false;
 }
 
-t_stack	*find_by_coord(t_stack **a, int min, int max)
+void push_back_to_a(t_stack **a, t_stack **b)
 {
-	t_stack	*current;
-
-	assign_coord(a);
-	current = *a;
-	while (current)
-	{
-		if (current->coord >= min && current->coord <= max)
-			break ;
-		current = current->next;
-	}
-	return (current);
+    int max = check_size(b);
+    int pushed = 0;
+    t_stack *target;
+    while (check_size(b) > 0)
+    {
+        target = *b;
+        if (target->coord == max)
+        {
+            pa(a, b);
+            max--;
+            if (pushed == 1)
+            {
+                max--;
+                pushed = 0;
+                sa(a);
+            }
+            else if (pushed == 2)
+            {
+                max -= 2;
+                pushed = 0;
+                sa(a);
+                rra(a);
+            }
+        }
+        else if (target->coord == max - 2 && pushed == 1)
+        {
+            pa(a, b);
+            ra(a);
+            pushed = 2;
+        }
+        else if (target->coord == max - 1)
+        {
+            pa(a, b);
+            pushed = 1;
+        }
+        else if (is_big_upside(b, max))
+        {
+            rb(b);
+        }
+        else
+            rrb(b);
+    }
 }
 
-void push_max_to_a(t_stack **a, t_stack **b, t_stack *max)
+void divide_to_blocks(t_stack **a, t_stack **b, int blkcount, int size, int blk, int blksize)
 {
-	int	distance_to_top;
-	int	size;
-
-	if (!max)
-		return ;
-	distance_to_top = find_distance_to_top(*b, max);
-	size = check_size(b);
-	if (distance_to_top <= size / 2)
-	{
-		while (*b != max)
-			rb(b);
-	}
-	else
-	{
-		while (*b != max)
-			rrb(b);
-	}
-	pa(a, b);
+    int range = (size / blk) * blkcount;
+    if (blkcount == blk)
+        range = size - 3;
+    while (check_size(b) < range && blkcount <= blk)
+    {
+        if ((*a)->coord <= range)
+        {
+            pb(a, b);
+            if (check_size(b) > 1 && (*b)->coord > range - blksize)
+                rb(b);
+        }
+        else
+            ra(a);
+    }
+    blkcount++;
+    if (check_size(a) == 3)
+        sort_3(a);
+    if (blkcount <= blk)
+        divide_to_blocks(a, b, blkcount, size, blk, blksize);
 }
 
-// #include "init.h"
-// #include <stdio.h>
+void sort_big(t_stack **a, t_stack **b)
+{
+    int blkcount = 1;
+    int size = check_size(a);
+    int blk;
+    if (size <= 100)
+        blk = 4;
+    else
+        blk = 8;
+    int blksize = (size / blk) / 2;
 
-// // void	print_stack(t_stack *stack)
-// // {
-// // 	while (stack)
-// // 	{
-// // 		printf(" %d (%d) -> ", stack->value, stack->coord);
-// // 		stack = stack->next;
-// // 	}
-// // 	printf("NULL\n");
-// // }
-
-// int	main(int ac, char **av)
-// {
-// 	if (ac < 8)
-// 	{
-// 		puts("Error: Too few arguments");
-// 		return (1);
-// 	}
-// 	t_stack **a = init_a(ac, av);
-// 	t_stack **b = init_b();
-// 	// printf("Before:\n");
-// 	// print_stack(*a);
-// 	sort_big(a, b);
-// 	// printf("After:\n");
-// 	// print_stack(*a);
-// 	return (0);
-// }
+    assign_coord(a);
+    divide_to_blocks(a, b, blkcount, size, blk, blksize);
+    push_back_to_a(a, b);
+}
