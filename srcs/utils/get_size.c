@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 17:02:52 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 20:13:10 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/09 13:52:24 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/17 07:38:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "init.h"
-#include "operations.h"
 #include "sort.h"
 
-int	main(int ac, char **av)
+int	get_size(t_stack **stack_a)
 {
-	t_stack	**a;
-	t_stack	**b;
 	int		size;
+	t_stack	*tmp;
 
-	check_args(ac, av);
-	a = init_a(ac, av);
-	b = init_b();
-	if (!a || !b)
-		return (free_stack(a, b), 1);
-	size = get_size(a);
-	if (size == 2)
-		sort_2(a);
-	else if (size == 3)
-		sort_3(a);
-	else if (size <= 6)
-		sort_small(a, b);
-	else
-		sort_big(a, b);
-	free_stack(a, b);
-	return (0);
+	size = 0;
+	tmp = *stack_a;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
 }

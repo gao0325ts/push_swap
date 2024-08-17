@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:29:01 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:58:49 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 20:13:10 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	sort_small(t_stack **a, t_stack **b)
 {
 	t_stack	*min;
 
-	while (check_size(a) > 3)
+	while (get_size(a) > 3)
 	{
 		min = find_min(a);
 		push_min_to_b(a, b, min);
 	}
 	sort_3(a);
-	while (check_size(b) > 0)
+	while (get_size(b) > 0)
 		pa(a, b);
 }
 
@@ -64,7 +64,7 @@ void	push_min_to_b(t_stack **a, t_stack **b, t_stack *min)
 	if (!min)
 		exit(0);
 	distance_to_top = find_distance_to_top(*a, min);
-	size = check_size(a);
+	size = get_size(a);
 	if (distance_to_top <= size / 2)
 	{
 		while (*a != min)

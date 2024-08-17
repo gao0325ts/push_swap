@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:24:26 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 20:24:18 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 t_stack	**create_list(int ac)
 {
-	t_stack	**list;
+	t_stack	**stack;
 	t_stack	*new_node;
 	int		i;
 
-	list = (t_stack **)malloc(sizeof(t_stack *));
-	if (!list)
+	stack = (t_stack **)malloc(sizeof(t_stack *));
+	if (!stack)
 		return (NULL);
-	*list = NULL;
+	*stack = NULL;
 	i = 1;
 	while (i < ac)
 	{
 		new_node = create_node();
 		if (!new_node)
 		{
-			clear_nodes(list);
-			free(list);
+			clear_nodes(stack);
+			free(stack);
 			return (NULL);
 		}
-		add_node(list, new_node);
+		add_node(stack, new_node);
 		i++;
 	}
-	return (list);
+	return (stack);
 }
 
 t_stack	*create_node(void)
@@ -51,16 +51,16 @@ t_stack	*create_node(void)
 	return (new_node);
 }
 
-void	add_node(t_stack **list_b, t_stack *new_node)
+void	add_node(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*current;
 
-	if (!*list_b)
+	if (!*stack)
 	{
-		*list_b = new_node;
+		*stack = new_node;
 		return ;
 	}
-	current = *list_b;
+	current = *stack;
 	while (current->next)
 		current = current->next;
 	current->next = new_node;

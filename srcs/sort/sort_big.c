@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:57:06 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 20:13:52 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	push_back_to_a(t_stack **a, t_stack **b, int max)
 	t_stack	*target;
 
 	pushed = 0;
-	while (check_size(b) > 0)
+	while (get_size(b) > 0)
 	{
 		target = *b;
 		if (target->rank == max)
@@ -88,19 +88,19 @@ void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i)
 	range = (i->size / i->blk) * i->blkcount;
 	if (i->blkcount == i->blk)
 		range = i->size - 3;
-	while (check_size(b) < range && i->blkcount <= i->blk)
+	while (get_size(b) < range && i->blkcount <= i->blk)
 	{
 		if ((*a)->rank <= range)
 		{
 			pb(a, b);
-			if (check_size(b) > 1 && (*b)->rank > range - i->blksize)
+			if (get_size(b) > 1 && (*b)->rank > range - i->blksize)
 				rb(b);
 		}
 		else
 			ra(a);
 	}
 	i->blkcount++;
-	if (check_size(a) == 3)
+	if (get_size(a) == 3)
 		sort_3(a);
 	if (i->blkcount <= i->blk)
 		divide_to_blocks(a, b, i);
@@ -112,11 +112,9 @@ void	sort_big(t_stack **a, t_stack **b)
 
 	i = (t_info *)malloc(sizeof(t_info));
 	if (!i)
-	{
 		return ;
-	}
 	i->blkcount = 1;
-	i->size = check_size(a);
+	i->size = get_size(a);
 	if (i->size <= 100)
 		i->blk = 4;
 	else
@@ -124,6 +122,6 @@ void	sort_big(t_stack **a, t_stack **b)
 	i->blksize = (i->size / i->blk) / 2;
 	assign_rank(a);
 	divide_to_blocks(a, b, i);
-	push_back_to_a(a, b, check_size(b));
+	push_back_to_a(a, b, get_size(b));
 	free(i);
 }

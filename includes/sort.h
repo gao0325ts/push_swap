@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:36:11 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:56:45 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 20:13:10 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "operations.h"
 # include <stdbool.h>
 
-int		check_size(t_stack **stack_a);
+int		get_size(t_stack **stack_a);
 
 void	sort_2(t_stack **a);
 void	sort_3(t_stack **a);
