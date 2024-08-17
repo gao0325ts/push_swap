@@ -1,9 +1,9 @@
 *
 
-!libft/
-!libft/*.c
-!libft/*.h
-!libft/Makefile
+!lib/
+!lib/*/
+!lib/*/*
+!lib/Makefile
 !includes/
 !includes/*.h
 !srcs/

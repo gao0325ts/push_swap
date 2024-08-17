@@ -1,23 +1,14 @@
-NAME = push_swap
+NAME = lib.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-LIB = lib.a
+LIBFT_DIR = ./libft
+GNL_DIR = ./get_next_line
 
-LIB_DIR = ./lib
-SRCS_DIR = ./srcs
-INCLUDES = -I ./includes -I $(LIB_DIR)/libft -I $(LIB_DIR)/get_next_line
-
-LIB_SRCS = $(wildcard $(LIB_DIR)/*/*.c)
-LIB_OBJS = $(LIB_SRCS:.c=.o)
-
-SRCS = $(wildcard $(SRCS_DIR)/*/*.c) $(SRCS_DIR)/main.c
+SRCS = $(wildcard $(LIBFT_DIR)/*.c $(GNL_DIR)/*.c)
 OBJS = $(SRCS:.c=.o)
-
-CHECKER_SRCS = $(wildcard $(SRCS_DIR)/checker/*.c)
-CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 
 BOLD =			\033[1m
 ITALIC =		\033[3m
@@ -34,28 +25,22 @@ MAKEFLAGS += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@make -C $(LIB_DIR)
-	@cp $(LIB_DIR)/$(LIB) .
-	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(NAME)...🔗$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(OBJS) ./$(LIB_DIR)/$(LIB) -o $(NAME)
+	@echo "\n$(BOLD)$(GLITCH_BLUE)⚡ Creating archive $(NAME)...⚡$(DEF_COLOR)"
+	@ar rcs $@ $^
 	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) are ready! ✅$(DEF_COLOR)\n"
 
 .c.o:
 	@echo "$(ITALIC)$(GLITCH_BLUE)⚙️  Compiling: $(ELECTRIC_BLUE)$<$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@	
-
-# checker:
-
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "\n$(BOLD)$(HOT_PINK)🧹 Cleaning up object files... 🧹$(DEF_COLOR)"
-	@$(RM) $(OBJS) $(LIB_OBJS)
+	@rm -f $(OBJS)
 	@echo "$(NEON_GREEN)✨ Object files cleaned! ✨$(DEF_COLOR)\n"
 
 fclean: clean
 	@echo "$(BOLD)$(NEON_PINK)🧼 Removing $(NAME)... 🧼$(DEF_COLOR)"
-	@$(RM) $(LIB_DIR)/$(LIB)
-	@$(RM) $(NAME) $(LIB)
+	@rm -f $(NAME)
 	@echo "$(NEON_GREEN)✨ $(NAME) is gone! Fresh start ready! ✨$(DEF_COLOR)\n"
 
 re:
@@ -63,4 +48,4 @@ re:
 	@make fclean
 	@make all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
