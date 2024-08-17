@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_a_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 21:17:54 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/18 01:14:03 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/18 01:11:17 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/18 01:15:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	main(int ac, char **av)
+t_stack	**init_a_bonus(int ac, char **av)
 {
 	t_stack	**a;
-	t_stack	**b;
 
-	check_args(ac, av);
-	if (ac == 2)
-		a = init_a_bonus_onestr(ft_split(av[1], ' '));
-	else
-		a = init_a_bonus(ac, av);
-	b = init_b();
-	if (!a || !b)
-		exit(0);
-	do_operations(a, b);
-	if (is_sorted(a) && *b == NULL)
-		ft_putendl_fd("OK", STDOUT_FILENO);
-	else
-		ft_putendl_fd("KO", STDOUT_FILENO);
-	return (0);
+	if (!*av || !av)
+		exit_with_error();
+	a = create_list(ac);
+	assign_value(a, av);
+	if (is_duplicate(a))
+		exit_with_error();
+	assign_rank(a);
+	return (a);
+}
+
+t_stack	**init_a_bonus_onestr(char **args)
+{
+	t_stack	**a;
+
+	if (!*args || !args)
+		exit_with_error();
+	a = create_list_onestr(args);
+	assign_value_onestr(a, args);
+	if (is_duplicate(a))
+		exit_with_error();
+	assign_rank(a);
+	return (a);
 }
