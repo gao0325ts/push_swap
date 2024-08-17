@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:20:56 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 00:09:09 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:40:31 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, bool print)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -24,10 +24,11 @@ void	sa(t_stack **a)
 	first->next = second->next;
 	second->next = first;
 	*a = second;
-	ft_putendl_fd("sa", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, bool print)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -39,14 +40,16 @@ void	sb(t_stack **b)
 	first->next = second->next;
 	second->next = first;
 	*b = second;
-	ft_putendl_fd("sb", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, bool print)
 {
-	sa(a);
-	sb(b);
-	ft_putendl_fd("ss", STDOUT_FILENO);
+	sa(a, false);
+	sb(b, false);
+	if (print)
+		ft_putendl_fd("ss", STDOUT_FILENO);
 }
 
 // #include <stdio.h>

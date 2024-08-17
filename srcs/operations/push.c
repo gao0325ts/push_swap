@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:48:49 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:38:21 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, bool print)
 {
 	t_stack	*tmp;
 
@@ -22,10 +22,11 @@ void	pa(t_stack **a, t_stack **b)
 	*b = (*b)->next;
 	tmp->next = *a;
 	*a = tmp;
-	ft_putendl_fd("pa", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, bool print)
 {
 	t_stack	*tmp;
 
@@ -35,7 +36,8 @@ void	pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	tmp->next = *b;
 	*b = tmp;
-	ft_putendl_fd("pb", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("pb", STDOUT_FILENO);
 }
 
 // #include <stdio.h>

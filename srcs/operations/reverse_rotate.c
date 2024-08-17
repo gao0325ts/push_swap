@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:35:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:39:10 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, bool print)
 {
 	t_stack	*last;
 	t_stack	*second_last;
@@ -29,10 +29,11 @@ void	rra(t_stack **a)
 	second_last->next = NULL;
 	last->next = *a;
 	*a = last;
-	ft_putendl_fd("rra", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, bool print)
 {
 	t_stack	*last;
 	t_stack	*second_last;
@@ -49,14 +50,16 @@ void	rrb(t_stack **b)
 	second_last->next = NULL;
 	last->next = *b;
 	*b = last;
-	ft_putendl_fd("rrb", STDOUT_FILENO);
+	if (print)
+		ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, bool print)
 {
-	rra(a);
-	rrb(b);
-	ft_putendl_fd("rrr", STDOUT_FILENO);
+	rra(a, false);
+	rrb(b, false);
+	if (print)
+		ft_putendl_fd("rrr", STDOUT_FILENO);
 }
 
 // #include <stdio.h>
