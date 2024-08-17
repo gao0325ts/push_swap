@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 23:41:18 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 20:24:32 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/18 00:19:19 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ t_stack	**init_a(int ac, char **av)
 		exit_with_error();
 	assign_rank(a);
 	if (is_sorted(a))
+	{
+		free_stack(a, NULL);
 		exit(0);
+	}
 	return (a);
 }
 
