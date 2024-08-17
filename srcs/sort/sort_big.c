@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 20:13:52 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:49:16 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ bool	is_big_upside(t_stack **b, int max)
 
 void	handle_max_cases(t_stack **a, t_stack **b, int *max, int *pushed)
 {
-	pa(a, b);
+	pa(a, b, true);
 	(*max)--;
 	if (*pushed == 1)
 	{
 		(*max)--;
 		*pushed = 0;
-		sa(a);
+		sa(a, true);
 	}
 	else if (*pushed == 2)
 	{
 		*max -= 2;
 		*pushed = 0;
-		sa(a);
-		rra(a);
+		sa(a, true);
+		rra(a, true);
 	}
 }
 
@@ -65,19 +65,19 @@ void	push_back_to_a(t_stack **a, t_stack **b, int max)
 			handle_max_cases(a, b, &max, &pushed);
 		else if (target->rank == max - 2 && pushed == 1)
 		{
-			pa(a, b);
-			ra(a);
+			pa(a, b, true);
+			ra(a, true);
 			pushed = 2;
 		}
 		else if (target->rank == max - 1)
 		{
-			pa(a, b);
+			pa(a, b, true);
 			pushed = 1;
 		}
 		else if (is_big_upside(b, max))
-			rb(b);
+			rb(b, true);
 		else
-			rrb(b);
+			rrb(b, true);
 	}
 }
 
@@ -92,12 +92,12 @@ void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i)
 	{
 		if ((*a)->rank <= range)
 		{
-			pb(a, b);
+			pb(a, b, true);
 			if (get_size(b) > 1 && (*b)->rank > range - i->blksize)
-				rb(b);
+				rb(b, true);
 		}
 		else
-			ra(a);
+			ra(a, true);
 	}
 	i->blkcount++;
 	if (get_size(a) == 3)

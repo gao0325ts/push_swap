@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:45:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:29:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:48:30 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_2(t_stack **a)
 	first = (*a)->rank;
 	second = (*a)->next->rank;
 	if (first > second)
-		sa(a);
+		sa(a, true);
 }
 
 void	sort_3(t_stack **a)
@@ -33,21 +33,21 @@ void	sort_3(t_stack **a)
 	second = (*a)->next->rank;
 	third = (*a)->next->next->rank;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(a, true);
 	else if (first > second && second > third && first > third)
 	{
-		sa(a);
-		rra(a);
+		sa(a, true);
+		rra(a, true);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(a, true);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(a, true);
+		ra(a, true);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(a, true);
 }
 
 // #include "init.h"
