@@ -10,5 +10,5 @@
 !srcs/*.c
 !srcs/*/
 !srcs/*/*.c
-!checker/
-!checker/*.c
+!bonus/
+!bonus/*.c
