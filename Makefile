@@ -16,7 +16,7 @@ INCLUDES = -I ./includes -I $(LIB_DIR)/libft -I $(LIB_DIR)/get_next_line
 SRCS = $(filter-out $(SRCS_DIR)/main.c, $(wildcard $(SRCS_DIR)/*/*.c))
 OBJS = $(SRCS:.c=.o)
 
-BONUS_DIR = ./checker_own
+BONUS_DIR = ./bonus
 BONUS_SRCS = $(filter-out $(BONUS_DIR)/main.c, $(wildcard $(BONUS_DIR)/*.c))
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
