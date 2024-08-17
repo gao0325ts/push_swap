@@ -10,5 +10,5 @@
 !srcs/*.c
 !srcs/*/
 !srcs/*/*.c
-!checker_own/
-!checker_own/*.c
+!checker/
+!checker/*.c
