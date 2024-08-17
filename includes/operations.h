@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 03:00:17 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 21:41:49 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 22:21:06 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define OPERATIONS_H
 
 # include "common.h"
-#include <stdbool.h>
+# include <stdbool.h>
 
 void	sa(t_stack **a, bool print);
 void	sb(t_stack **b, bool print);

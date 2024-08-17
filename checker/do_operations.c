@@ -6,105 +6,103 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:58:23 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 21:59:19 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/17 22:20:47 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-bool    compare_with_rr(t_stack **a, t_stack **b, char *opr)
+bool	compare_with_rr(t_stack **a, t_stack **b, char *opr)
 {
-    if (!ft_strncmp(opr, "rra", 3))
-    {
-        rra(a, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "rrb", 3))
-    {
-        rrb(b, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "rrr", 3))
-    {
-        rrr(a, b, false);
-        return (true);
-    }
-    return (false);
+	if (!ft_strncmp(opr, "rra", 3))
+	{
+		rra(a, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "rrb", 3))
+	{
+		rrb(b, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "rrr", 3))
+	{
+		rrr(a, b, false);
+		return (true);
+	}
+	return (false);
 }
 
-bool    compare_with_r(t_stack **a, t_stack **b, char *opr)
+bool	compare_with_r(t_stack **a, t_stack **b, char *opr)
 {
-    if (!ft_strncmp(opr, "ra", 2))
-    {
-        ra(a, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "rb", 2))
-    {
-        rb(b, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "rr", 2))
-    {
-        rr(a, b, false);
-        return (true);
-    }
-    return (false);
+	if (!ft_strncmp(opr, "ra", 2))
+	{
+		ra(a, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "rb", 2))
+	{
+		rb(b, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "rr", 2))
+	{
+		rr(a, b, false);
+		return (true);
+	}
+	return (false);
 }
 
-bool    compare_with_s(t_stack **a, t_stack **b, char *opr)
+bool	compare_with_s(t_stack **a, t_stack **b, char *opr)
 {
-    if (!ft_strncmp(opr, "sa", 2))
-    {
-        sa(a, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "sb", 2))
-    {
-        sb(b, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "ss", 2))
-    {
-        ss(a, b, false);
-        return (true);
-    }
-    return (false);
+	if (!ft_strncmp(opr, "sa", 2))
+	{
+		sa(a, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "sb", 2))
+	{
+		sb(b, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "ss", 2))
+	{
+		ss(a, b, false);
+		return (true);
+	}
+	return (false);
 }
 
-bool    compare_with_p(t_stack **a, t_stack **b, char *opr)
+bool	compare_with_p(t_stack **a, t_stack **b, char *opr)
 {
-    if (!ft_strncmp(opr, "pa", 2))
-    {
-        pa(a, b, false);
-        return (true);
-    }
-    else if (!ft_strncmp(opr, "pb", 2))
-    {
-        pb(a, b, false);
-        return (true);
-    }
-    return (false);
+	if (!ft_strncmp(opr, "pa", 2))
+	{
+		pa(a, b, false);
+		return (true);
+	}
+	else if (!ft_strncmp(opr, "pb", 2))
+	{
+		pb(a, b, false);
+		return (true);
+	}
+	return (false);
 }
 
-void    do_operations(t_stack **a, t_stack **b)
+void	do_operations(t_stack **a, t_stack **b)
 {
-    char *opr;
+	char	*opr;
 
-    while (1)
-    {
-        opr = get_next_line(STDIN_FILENO);
-        if (!opr)
-            break;
-        if (compare_with_rr(a, b, opr) ||
-            compare_with_r(a, b, opr) ||
-            compare_with_s(a, b, opr) ||
-            compare_with_p(a, b, opr))
-        {
-            free(opr);
-            continue;
-        }
-        free(opr);
-        exit_with_error();
-    }
+	while (1)
+	{
+		opr = get_next_line(STDIN_FILENO);
+		if (!opr)
+			break ;
+		if (compare_with_rr(a, b, opr) || compare_with_r(a, b, opr)
+			|| compare_with_s(a, b, opr) || compare_with_p(a, b, opr))
+		{
+			free(opr);
+			continue ;
+		}
+		free(opr);
+		exit_with_error();
+	}
 }
