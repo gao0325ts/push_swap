@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:56:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/18 00:32:22 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 14:19:14 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_stack	**init_a_onestr(char **args)
 {
 	t_stack	**a;
+	int i;
 
 	if (!*args || !args)
 		exit_with_error();
@@ -28,6 +29,13 @@ t_stack	**init_a_onestr(char **args)
 		free_stack(a, NULL);
 		exit(0);
 	}
+	i = 0;
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
 	return (a);
 }
 
@@ -44,12 +52,5 @@ void	assign_value_onestr(t_stack **stack, char **args)
 		current = current->next;
 		i++;
 	}
-	i = 0;
-	while (args[i])
-	{
-		free(args[i]);
-		i++;
-	}
-	free(args);
 }
 
