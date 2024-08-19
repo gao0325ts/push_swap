@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:53:32 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:05:43 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:17:45 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_stack(t_stack **stack)
 	t_stack	*current;
 	t_stack	*next;
 
-	if (!stack || !*stack)
+	if (!stack)
 		return ;
 	current = *stack;
 	while (current)

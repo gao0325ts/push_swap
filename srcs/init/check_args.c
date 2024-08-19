@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:28:25 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:14:42 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ void	check_args(int ac, char **av)
 		args = ft_split(av[1], ' ');
 		if (!args || !args[0] || !are_digits_only_onestr(args)
 			|| !are_valid_int_onestr(args))
+		{
+			free_args(args);
 			exit_with_error();
+		}
+		free_args(args);
 	}
 	else
 	{

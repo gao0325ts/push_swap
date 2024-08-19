@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:58:23 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/18 01:00:35 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:20:20 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	do_operations(t_stack **a, t_stack **b)
 			continue ;
 		}
 		free(input);
+		free_stack(a);
+		free_stack(b);
 		exit_with_error();
 	}
 }

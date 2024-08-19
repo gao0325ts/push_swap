@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_a_onestr.c                                    :+:      :+:    :+:   */
+/*   free_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 22:56:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 16:11:35 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/19 16:11:40 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/19 16:11:48 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-t_stack	**init_a_onestr(char **args)
+void	free_args(char **args)
 {
-	t_stack	**a;
+	int	i;
 
-	a = create_list_onestr(args);
-	if (!a)
-		return (NULL);
-	assign_value_onestr(a, args);
-	if (is_duplicate(a))
+	i = 0;
+	while (args[i])
 	{
-		free_args(args);
-		free_stack(a);
-		exit_with_error();
+		free(args[i]);
+		i++;
 	}
-	assign_rank(a);
-	if (is_sorted(a))
-	{
-		free_args(args);
-		free_stack(a);
-		exit(0);
-	}
-	free_args(args);
-	return (a);
+	free(args);
 }
-

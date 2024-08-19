@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:10:21 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:46:29 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:17:40 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ bool	is_duplicate(t_stack **stack)
 		while (compare)
 		{
 			if (current->value == compare->value)
-			{
-				free_stack(stack);
 				return (true);
-			}
 			compare = compare->next;
 		}
 		current = current->next;
