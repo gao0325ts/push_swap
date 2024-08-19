@@ -2,7 +2,8 @@
 
 !lib/
 !lib/*/
-!lib/*/*
+!lib/*/*.c
+!lib/*/*.h
 !lib/Makefile
 !includes/
 !includes/*.h
