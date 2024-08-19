@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:21:30 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/18 00:31:07 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 14:20:50 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ bool		is_digit_only(char **av);
 bool	is_digit_only_onestr(char **args);
 bool		is_int(char **av);
 bool	is_int_onestr(char **args);
+bool is_empty(char **av);
 
 long long	ft_atoll(const char *str);
 
