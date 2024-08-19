@@ -1,23 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assign_rank.c                                     :+:      :+:    :+:   */
+/*   assign.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 14:33:40 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:28:01 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/19 15:15:17 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/19 15:57:01 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 #include "sort.h"
 
+void	assign_value_onestr(t_stack **stack, char **args)
+{
+	int		i;
+	t_stack	*current;
+
+	i = 0;
+	current = *stack;
+	while (args[i])
+	{
+		current->value = ft_atoi(args[i]);
+		current = current->next;
+		i++;
+	}
+}
+
+void	assign_value(t_stack **stack, char **av)
+{
+	int		i;
+	t_stack	*current;
+
+	i = 1;
+	current = *stack;
+	while (av[i])
+	{
+		current->value = ft_atoi(av[i]);
+		current = current->next;
+		i++;
+	}
+}
+
 void	assign_rank(t_stack **stack)
 {
-	long long	count;
-	t_stack		*current;
-	t_stack		*compare;
+	int		count;
+	t_stack	*current;
+	t_stack	*compare;
 
 	current = *stack;
 	while (current)

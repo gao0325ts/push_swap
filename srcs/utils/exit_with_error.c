@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:44:53 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 08:45:00 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:32:16 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,3 @@ void	exit_with_error(void)
 	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(1);
 }
-
-// int main()
-// {
-//     exit_with_error();
-//     return (0);
-// }

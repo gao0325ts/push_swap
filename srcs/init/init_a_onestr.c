@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:56:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 14:19:14 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:57:09 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,30 @@
 t_stack	**init_a_onestr(char **args)
 {
 	t_stack	**a;
-	int i;
 
-	if (!*args || !args)
-		exit_with_error();
 	a = create_list_onestr(args);
+	if (!a)
+		return (NULL);
 	assign_value_onestr(a, args);
 	if (is_duplicate(a))
+	{
+		free_stack(a);
 		exit_with_error();
+	}
 	assign_rank(a);
 	if (is_sorted(a))
 	{
-		free_stack(a, NULL);
+		free_stack(a);
 		exit(0);
 	}
+	free_args(args);
+	return (a);
+}
+
+void	free_args(char **args)
+{
+	int	i;
+
 	i = 0;
 	while (args[i])
 	{
@@ -36,21 +46,4 @@ t_stack	**init_a_onestr(char **args)
 		i++;
 	}
 	free(args);
-	return (a);
 }
-
-void	assign_value_onestr(t_stack **stack, char **args)
-{
-	int i;
-	t_stack *current;
-	
-	i = 0;
-	current = *stack;
-	while (args[i])
-	{
-		current->value = ft_atoi(args[i]);
-		current = current->next;
-		i++;
-	}
-}
-

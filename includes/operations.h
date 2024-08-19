@@ -6,15 +6,17 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 03:00:17 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 22:21:06 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:58:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
-# include "common.h"
+# include "libft.h"
+# include "stack.h"
 # include <stdbool.h>
+# include <stdlib.h>
 
 void	sa(t_stack **a, bool print);
 void	sb(t_stack **b, bool print);

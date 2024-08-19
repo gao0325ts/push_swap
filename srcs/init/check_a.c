@@ -1,28 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_size.c                                       :+:      :+:    :+:   */
+/*   check_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 13:52:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 07:38:26 by stakada          ###   ########.fr       */
+/*   Created: 2024/08/19 15:10:21 by stakada           #+#    #+#             */
+/*   Updated: 2024/08/19 15:46:29 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "init.h"
 
-int	get_size(t_stack **stack)
+bool	is_duplicate(t_stack **stack)
 {
-	int		size;
 	t_stack	*current;
+	t_stack	*compare;
 
-	size = 0;
 	current = *stack;
 	while (current)
 	{
-		size++;
+		compare = current->next;
+		while (compare)
+		{
+			if (current->value == compare->value)
+			{
+				free_stack(stack);
+				return (true);
+			}
+			compare = compare->next;
+		}
 		current = current->next;
 	}
-	return (size);
+	return (false);
+}
+
+bool	is_sorted(t_stack **stack)
+{
+	int		count;
+	t_stack	*current;
+
+	count = 1;
+	current = *stack;
+	while (current->next)
+	{
+		if (current->rank != count)
+			return (false);
+		count++;
+		current = current->next;
+	}
+	return (true);
 }

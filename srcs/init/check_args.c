@@ -6,35 +6,37 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 14:23:32 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:28:25 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-// TODO 引数に空のものが含まれているときErrorにする
-
 void	check_args(int ac, char **av)
 {
-	char **args;
-	
+	char	**args;
+
 	if (ac == 1)
 		exit(0);
-	if (is_empty(av))
-		exit_with_error();
-	if (ac != 2 &&(!is_digit_only(av) || !is_int(av)))
+	if (has_empty_args(av))
 		exit_with_error();
 	if (ac == 2)
 	{
 		args = ft_split(av[1], ' ');
-		if (!args || !is_digit_only_onestr(args) || !is_int_onestr(args))
+		if (!args || !args[0] || !are_digits_only_onestr(args)
+			|| !are_valid_int_onestr(args))
+			exit_with_error();
+	}
+	else
+	{
+		if (!are_digits_only(av) || !are_valid_int(av))
 			exit_with_error();
 	}
 }
 
-bool is_empty(char **av)
+bool	has_empty_args(char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (av[i])
@@ -46,7 +48,7 @@ bool is_empty(char **av)
 	return (false);
 }
 
-bool	is_digit_only(char **av)
+bool	are_digits_only(char **av)
 {
 	int	i;
 	int	j;
@@ -68,7 +70,7 @@ bool	is_digit_only(char **av)
 	return (true);
 }
 
-bool	is_int(char **av)
+bool	are_valid_int(char **av)
 {
 	int			i;
 	long long	num;
@@ -83,9 +85,3 @@ bool	is_int(char **av)
 	}
 	return (true);
 }
-
-// int main(int ac, char **av)
-// {
-// 	check_args(ac, av);
-// 	return (0);
-// }

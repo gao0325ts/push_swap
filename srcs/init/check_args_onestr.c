@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 14:12:51 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 14:13:19 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:57:15 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-bool	is_digit_only_onestr(char **args)
+bool	are_digits_only_onestr(char **args)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ bool	is_digit_only_onestr(char **args)
 	return (true);
 }
 
-bool	is_int_onestr(char **args)
+bool	are_valid_int_onestr(char **args)
 {
 	int			i;
 	long long	num;
