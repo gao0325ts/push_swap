@@ -27,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "\n$(BOLD)$(GLITCH_BLUE)⚡ Creating archive $(NAME)...⚡$(DEF_COLOR)"
 	@ar rcs $@ $^
-	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) are ready! ✅$(DEF_COLOR)\n"
+	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) is ready! ✅$(DEF_COLOR)\n"
 
 .c.o:
 	@echo "$(ITALIC)$(GLITCH_BLUE)⚙️  Compiling: $(ELECTRIC_BLUE)$<$(DEF_COLOR)"

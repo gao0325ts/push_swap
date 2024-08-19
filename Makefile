@@ -38,7 +38,7 @@ $(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
 	@make -C $(LIB_DIR)
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(NAME)...🔗$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o -o $(NAME)
-	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) are ready! ✅$(DEF_COLOR)\n"
+	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) is ready! ✅$(DEF_COLOR)\n"
 
 bonus: $(BONUS)
 
