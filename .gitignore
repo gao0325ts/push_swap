@@ -4,7 +4,6 @@
 !lib/*/
 !lib/*/*.c
 !lib/*/*.h
-!lib/Makefile
 !includes/
 !includes/*.h
 !srcs/
@@ -13,3 +12,4 @@
 !srcs/*/*.c
 !bonus/
 !bonus/*.c
+!Makefile
