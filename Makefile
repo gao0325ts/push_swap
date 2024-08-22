@@ -35,7 +35,7 @@ MAKEFLAGS += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
-	@make -C $(LIB_DIR)
+	@$(MAKE) -C $(LIB_DIR)
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(NAME)...🔗$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o -o $(NAME)
 	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) is ready! ✅$(DEF_COLOR)\n"
@@ -43,7 +43,7 @@ $(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
 bonus: $(BONUS)
 
 $(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o
-	@make -C $(LIB_DIR)
+	@$(MAKE) -C $(LIB_DIR)
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(BONUS)...🔗$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o -o $(BONUS)
 	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(BONUS) is ready! ✅$(DEF_COLOR)\n"
@@ -65,8 +65,8 @@ fclean: clean
 
 re:
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔄 Rebuilding $(NAME)...🔄$(DEF_COLOR)"
-	@make fclean
-	@make all
-	@make bonus
+	@$(MAKE) fclean
+	@$(MAKE) all
+	@$(MAKE) bonus
 
 .PHONY: all clean fclean re
