@@ -45,7 +45,7 @@ fclean: clean
 
 re:
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔄 Rebuilding $(NAME)...🔄$(DEF_COLOR)"
-	@make fclean
-	@make all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 .PHONY: all clean fclean re bonus
