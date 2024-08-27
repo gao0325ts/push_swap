@@ -2,7 +2,7 @@ NAME = lib.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-RM = rm -rf
+RM = rm -f
 
 LIBFT_DIR = ./libft
 GNL_DIR = ./get_next_line
@@ -35,12 +35,12 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "\n$(BOLD)$(HOT_PINK)🧹 Cleaning up object files... 🧹$(DEF_COLOR)"
-	@rm -f $(OBJS)
+	@$(RM) $(OBJS)
 	@echo "$(NEON_GREEN)✨ Object files cleaned! ✨$(DEF_COLOR)\n"
 
 fclean: clean
 	@echo "$(BOLD)$(NEON_PINK)🧼 Removing $(NAME)... 🧼$(DEF_COLOR)"
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 	@echo "$(NEON_GREEN)✨ $(NAME) is gone! Fresh start ready! ✨$(DEF_COLOR)\n"
 
 re:

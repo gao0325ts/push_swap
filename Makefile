@@ -34,18 +34,18 @@ MAKEFLAGS += --no-print-directory
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
+$(NAME): $(OBJS) $(SRCS_DIR)/main.o
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(NAME)...🔗$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB_DIR)/$(LIB) $(SRCS_DIR)/main.o -o $(NAME)
 	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(NAME) is ready! ✅$(DEF_COLOR)\n"
 
 bonus: $(BONUS)
 
-$(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o
+$(BONUS): $(BONUS_OBJS) $(OBJS) $(BONUS_DIR)/main.o
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "\n$(BOLD)$(CYBER_PURPLE)🔗 Linking into $(BONUS)...🔗$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o -o $(BONUS)
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_DIR)/$(LIB) $(BONUS_DIR)/main.o -o $(BONUS)
 	@echo "\n$(BOLD)$(NEON_GREEN)✅ $(BONUS) is ready! ✅$(DEF_COLOR)\n"
 
 .c.o:
