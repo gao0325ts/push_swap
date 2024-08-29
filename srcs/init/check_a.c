@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:10:21 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 16:17:40 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:03:45 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ bool	is_sorted(t_stack **stack)
 	int		count;
 	t_stack	*current;
 
+	if (!*stack)
+		return (false);
 	count = 1;
 	current = *stack;
 	while (current->next)
