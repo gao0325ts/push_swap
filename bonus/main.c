@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:17:54 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 16:19:25 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:32:39 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int ac, char **av)
 
 	check_args(ac, av);
 	if (ac == 2)
-		a = init_a_bonus_onestr(ft_split(av[1], ' '));
+		a = init_a_bonus(ft_split(av[1], ' '), ONESTR);
 	else
-		a = init_a_bonus(ac, av);
+		a = init_a_bonus(av, MULTISTR);
 	b = init_b();
 	if (!a || !b)
 		exit(1);

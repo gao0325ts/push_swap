@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 08:49:32 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:52:38 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:32:23 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include "operations.h"
 # include "stack.h"
 
-t_stack	**init_a_bonus(int ac, char **av);
-t_stack	**init_a_bonus_onestr(char **args);
+t_stack	**init_a_bonus(char **strs, int is_onestr);
 void	check_args_bonus(int ac, char **av);
 
 void	do_operations(t_stack **a, t_stack **b);

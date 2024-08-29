@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:11:07 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:23:05 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	has_empty_args(char **av)
 	return (false);
 }
 
-bool	are_digits_only(char **strs, bool is_onestr)
+bool	are_digits_only(char **strs, int is_onestr)
 {
 	int	i;
 	int	j;
@@ -78,7 +78,7 @@ bool	are_digits_only(char **strs, bool is_onestr)
 	return (true);
 }
 
-bool	are_valid_int(char **strs, bool is_onestr)
+bool	are_valid_int(char **strs, int is_onestr)
 {
 	int			i;
 	long long	num;

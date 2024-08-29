@@ -6,38 +6,25 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:15:17 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:57:01 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:27:12 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 #include "sort.h"
 
-void	assign_value_onestr(t_stack **stack, char **args)
+void		assign_value(t_stack **stack, char **strs, int is_onestr)
 {
 	int		i;
 	t_stack	*current;
 
 	i = 0;
-	current = *stack;
-	while (args[i])
-	{
-		current->value = ft_atoi(args[i]);
-		current = current->next;
+	if (!is_onestr)
 		i++;
-	}
-}
-
-void	assign_value(t_stack **stack, char **av)
-{
-	int		i;
-	t_stack	*current;
-
-	i = 1;
 	current = *stack;
-	while (av[i])
+	while (strs[i])
 	{
-		current->value = ft_atoi(av[i]);
+		current->value = ft_atoi(strs[i]);
 		current = current->next;
 		i++;
 	}
