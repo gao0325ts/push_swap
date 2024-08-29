@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 16:14:42 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 16:57:28 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ bool	are_digits_only(char **av)
 	while (av[i])
 	{
 		j = 0;
+		if (av[i][j] == '-')
+			j++;
+		if (!av[i][j])
+			return (false);
 		while (av[i][j])
 		{
-			if (av[i][j] == '-')
-				j++;
 			if (!ft_isdigit(av[i][j]))
 				return (false);
 			j++;

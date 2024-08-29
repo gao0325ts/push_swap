@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 14:12:51 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:57:15 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 16:56:48 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ bool	are_digits_only_onestr(char **args)
 	while (args[i])
 	{
 		j = 0;
+		if (args[i][j] == '-')
+			j++;
+		if (!args[i][j])
+			return (false);
 		while (args[i][j])
 		{
-			if (args[i][j] == '-')
-				j++;
 			if (!ft_isdigit(args[i][j]))
 				return (false);
 			j++;
