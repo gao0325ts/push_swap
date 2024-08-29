@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 16:00:08 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:15:01 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	sort_large(t_stack **a, t_stack **b)
 	else
 		i->blk = 8;
 	i->blksize = (i->size / i->blk) / 2;
-	assign_rank(a);
 	divide_to_blocks(a, b, i);
 	push_back_to_a(a, b, get_size(b));
 	free(i);
