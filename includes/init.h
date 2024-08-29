@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:21:30 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:57:34 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:10:21 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@
 # include <stdint.h>
 # include <stdlib.h>
 
+# define ONESTR 1
+# define MULTISTR 0
+
 void		check_args(int ac, char **av);
 bool		has_empty_args(char **av);
-bool		are_digits_only(char **av);
-bool		are_valid_int(char **av);
+bool		are_digits_only(char **strs, bool is_onestr);
+bool		are_valid_int(char **strs, bool is_onestr);
 
-bool		are_digits_only_onestr(char **args);
-bool		are_valid_int_onestr(char **args);
+// bool		are_digits_only_onestr(char **args);
+// bool		are_valid_int_onestr(char **args);
 
 long long	ft_atoll(const char *str);
 

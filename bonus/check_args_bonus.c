@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:17:36 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 17:06:06 by stakada          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:12:02 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	check_args_bonus(int ac, char **av)
 	if (ac == 2)
 	{
 		args = ft_split(av[1], ' ');
-		if (!args || !args[0] || !are_digits_only_onestr(args)
-			|| !are_valid_int_onestr(args))
+		if (!args || !args[0] || !are_digits_only(args, ONESTR)
+			|| !are_valid_int(args, ONESTR))
 		{
 			free_args(args);
 			exit_with_error();
@@ -33,7 +33,7 @@ void	check_args_bonus(int ac, char **av)
 	}
 	else
 	{
-		if (!are_digits_only(av) || !are_valid_int(av))
+		if (!are_digits_only(av, MULTISTR) || !are_valid_int(av, MULTISTR))
 			exit_with_error();
 	}
 }
