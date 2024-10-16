@@ -6,16 +6,16 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:53:32 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 17:16:39 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_node **stack)
 {
-	t_stack	*current;
-	t_stack	*next;
+	t_node	*current;
+	t_node	*next;
 
 	if (!stack)
 		return ;

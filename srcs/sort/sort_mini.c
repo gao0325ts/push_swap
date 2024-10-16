@@ -6,15 +6,15 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:29:01 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:56:55 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort_mini(t_stack **a, t_stack **b)
+void	sort_mini(t_node **a, t_node **b)
 {
-	t_stack	*min;
+	t_node	*min;
 
 	while (get_size(a) > 3)
 	{
@@ -26,10 +26,10 @@ void	sort_mini(t_stack **a, t_stack **b)
 		pa(a, b, true);
 }
 
-t_stack	*find_min(t_stack **a)
+t_node	*find_min(t_node **a)
 {
-	t_stack	*min;
-	t_stack	*current;
+	t_node	*min;
+	t_node	*current;
 
 	min = *a;
 	current = *a;
@@ -42,7 +42,7 @@ t_stack	*find_min(t_stack **a)
 	return (min);
 }
 
-void	push_min_to_b(t_stack **a, t_stack **b, t_stack *min)
+void	push_min_to_b(t_node **a, t_node **b, t_node *min)
 {
 	int	distance_to_top;
 	int	size;
@@ -62,9 +62,9 @@ void	push_min_to_b(t_stack **a, t_stack **b, t_stack *min)
 	pb(a, b, true);
 }
 
-int	get_distance_to_top(t_stack **a, t_stack *target)
+int	get_distance_to_top(t_node **a, t_node *target)
 {
-	t_stack	*current;
+	t_node	*current;
 	int		distance;
 
 	current = *a;

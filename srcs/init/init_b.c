@@ -6,17 +6,17 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:59:40 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:19:35 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-t_stack	**init_b(void)
+t_node	**init_b(void)
 {
-	t_stack	**b;
+	t_node	**b;
 
-	b = (t_stack **)malloc(sizeof(t_stack *));
+	b = (t_node **)malloc(sizeof(t_node *));
 	if (!b)
 		return (NULL);
 	*b = NULL;

@@ -6,15 +6,15 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 01:11:17 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:32:14 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-t_stack	**init_a_bonus(char **strs, int is_onestr)
+t_node	**init_a_bonus(char **strs, int is_onestr)
 {
-	t_stack	**a;
+	t_node	**a;
 
 	a = create_list(strs, is_onestr);
 	assign_value(a, strs, is_onestr);

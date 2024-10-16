@@ -6,16 +6,16 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:35:24 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/17 21:39:10 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	rra(t_stack **a, bool print)
+void	rra(t_node **a, bool print)
 {
-	t_stack	*last;
-	t_stack	*second_last;
+	t_node	*last;
+	t_node	*second_last;
 
 	if (!*a || !(*a)->next)
 		return ;
@@ -33,10 +33,10 @@ void	rra(t_stack **a, bool print)
 		ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
-void	rrb(t_stack **b, bool print)
+void	rrb(t_node **b, bool print)
 {
-	t_stack	*last;
-	t_stack	*second_last;
+	t_node	*last;
+	t_node	*second_last;
 
 	if (!*b || !(*b)->next)
 		return ;
@@ -54,7 +54,7 @@ void	rrb(t_stack **b, bool print)
 		ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
-void	rrr(t_stack **a, t_stack **b, bool print)
+void	rrr(t_node **a, t_node **b, bool print)
 {
 	rra(a, false);
 	rrb(b, false);
@@ -65,7 +65,7 @@ void	rrr(t_stack **a, t_stack **b, bool print)
 // #include <stdio.h>
 // #include "init.h"
 
-// void print_stack(t_stack *stack)
+// void print_node(t_node *stack)
 // {
 //     while (stack)
 //     {
@@ -77,33 +77,33 @@ void	rrr(t_stack **a, t_stack **b, bool print)
 
 // int main(int ac, char **av)
 // {
-//     t_stack **a = init_a(ac, av);
-//     t_stack **b = init_a(ac, av);
-//     t_stack **a2 = init_a(ac, av);
-//     t_stack **b2 = init_a(ac, av);
+//     t_node **a = init_a(ac, av);
+//     t_node **b = init_a(ac, av);
+//     t_node **a2 = init_a(ac, av);
+//     t_node **b2 = init_a(ac, av);
 
 //     puts("-----rra-----");
 //     puts("Before:");
-//     print_stack(*a);
+//     print_node(*a);
 //     rra(a);
 //     puts("Atfter:");
-//     print_stack(*a);
+//     print_node(*a);
 
 //     puts("-----rrb-----");
 //     puts("Before:");
-//     print_stack(*b);
+//     print_node(*b);
 //     rrb(b);
 //     puts("After:");
-//     print_stack(*b);
+//     print_node(*b);
 
 //     puts("-----rrr-----");
 //     puts("Before:");
-//     print_stack(*a2);
-//     print_stack(*b2);
+//     print_node(*a2);
+//     print_node(*b2);
 //     rrr(a2, b2);
 //     puts("After:");
-//     print_stack(*a2);
-//     print_stack(*b2);
+//     print_node(*a2);
+//     print_node(*b2);
 
 //     clear_nodes(a);
 //     free(a);

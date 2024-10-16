@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:02:52 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:22:10 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	main(int ac, char **av)
 {
-	t_stack		**a;
-	t_stack		**b;
+	t_node		**a;
+	t_node		**b;
 	long long	size;
 
 	check_args(ac, av);

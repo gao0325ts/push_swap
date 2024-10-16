@@ -6,19 +6,19 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:24:26 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:28:45 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-t_stack	**create_list(char **strs, int is_onestr)
+t_node	**create_list(char **strs, int is_onestr)
 {
-	t_stack	**stack;
-	t_stack	*new_node;
+	t_node	**stack;
+	t_node	*new_node;
 	int		i;
 
-	stack = (t_stack **)malloc(sizeof(t_stack *));
+	stack = (t_node **)malloc(sizeof(t_node *));
 	if (!stack)
 		return (NULL);
 	*stack = NULL;
@@ -39,11 +39,11 @@ t_stack	**create_list(char **strs, int is_onestr)
 	return (stack);
 }
 
-t_stack	*create_node(void)
+t_node	*create_node(void)
 {
-	t_stack	*new_node;
+	t_node	*new_node;
 
-	new_node = (t_stack *)malloc(sizeof(t_stack));
+	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return (NULL);
 	new_node->value = 0;
@@ -52,9 +52,9 @@ t_stack	*create_node(void)
 	return (new_node);
 }
 
-void	add_node(t_stack **stack, t_stack *new_node)
+void	add_node(t_node **stack, t_node *new_node)
 {
-	t_stack	*current;
+	t_node	*current;
 
 	if (!*stack)
 	{

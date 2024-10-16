@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:45:31 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/19 15:34:32 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort_2(t_stack **a)
+void	sort_2(t_node **a)
 {
 	int	first;
 	int	second;
@@ -23,7 +23,7 @@ void	sort_2(t_stack **a)
 		sa(a, true);
 }
 
-void	sort_3(t_stack **a)
+void	sort_3(t_node **a)
 {
 	int	first;
 	int	second;

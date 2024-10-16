@@ -6,16 +6,16 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:10:21 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:03:45 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-bool	is_duplicate(t_stack **stack)
+bool	is_duplicate(t_node **stack)
 {
-	t_stack	*current;
-	t_stack	*compare;
+	t_node	*current;
+	t_node	*compare;
 
 	current = *stack;
 	while (current)
@@ -32,10 +32,10 @@ bool	is_duplicate(t_stack **stack)
 	return (false);
 }
 
-bool	is_sorted(t_stack **stack)
+bool	is_sorted(t_node **stack)
 {
 	int		count;
-	t_stack	*current;
+	t_node	*current;
 
 	if (!*stack)
 		return (false);

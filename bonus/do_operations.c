@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:58:23 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:19:36 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-bool	compare_with_rr(t_stack **a, t_stack **b, char *input)
+bool	compare_with_rr(t_node **a, t_node **b, char *input)
 {
 	if (!ft_strcmp(input, "rra\n"))
 	{
@@ -32,7 +32,7 @@ bool	compare_with_rr(t_stack **a, t_stack **b, char *input)
 	return (false);
 }
 
-bool	compare_with_r(t_stack **a, t_stack **b, char *input)
+bool	compare_with_r(t_node **a, t_node **b, char *input)
 {
 	if (!ft_strcmp(input, "ra\n"))
 	{
@@ -52,7 +52,7 @@ bool	compare_with_r(t_stack **a, t_stack **b, char *input)
 	return (false);
 }
 
-bool	compare_with_s(t_stack **a, t_stack **b, char *input)
+bool	compare_with_s(t_node **a, t_node **b, char *input)
 {
 	if (!ft_strcmp(input, "sa\n"))
 	{
@@ -72,7 +72,7 @@ bool	compare_with_s(t_stack **a, t_stack **b, char *input)
 	return (false);
 }
 
-bool	compare_with_p(t_stack **a, t_stack **b, char *input)
+bool	compare_with_p(t_node **a, t_node **b, char *input)
 {
 	if (!ft_strcmp(input, "pa\n"))
 	{
@@ -87,7 +87,7 @@ bool	compare_with_p(t_stack **a, t_stack **b, char *input)
 	return (false);
 }
 
-void	do_operations(t_stack **a, t_stack **b)
+void	do_operations(t_node **a, t_node **b)
 {
 	char	*input;
 

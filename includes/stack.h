@@ -13,15 +13,15 @@
 #ifndef STACK_H
 # define STACK_H
 
-# ifndef T_STACK_DEFINED
-#  define T_STACK_DEFINED
+# ifndef t_node_DEFINED
+#  define t_node_DEFINED
 
 typedef struct s_stack
 {
 	long long		rank;
 	int				value;
 	struct s_stack	*next;
-}					t_stack;
+}					t_node;
 # endif
 
 #endif

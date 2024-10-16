@@ -12,10 +12,10 @@
 
 #include "sort.h"
 
-int	get_size(t_stack **stack)
+int	get_size(t_node **stack)
 {
 	int		size;
-	t_stack	*current;
+	t_node	*current;
 
 	size = 0;
 	current = *stack;

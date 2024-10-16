@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:21:30 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:25:48 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:54 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ bool		are_valid_int(char **strs, int is_onestr);
 
 long long	ft_atoll(const char *str);
 
-t_stack	**init_a(char **strs, int is_onestr);
-void		assign_value(t_stack **stack, char **strs, int is_onestr);
-void		assign_rank(t_stack **stack);
+t_node	**init_a(char **strs, int is_onestr);
+void		assign_value(t_node **stack, char **strs, int is_onestr);
+void		assign_rank(t_node **stack);
 void		free_args(char **args);
 
-bool		is_duplicate(t_stack **stack);
-bool		is_sorted(t_stack **stack);
+bool		is_duplicate(t_node **stack);
+bool		is_sorted(t_node **stack);
 
-t_stack		**init_b(void);
+t_node		**init_b(void);
 
-t_stack	**create_list(char **strs, int is_onestr);
-t_stack		*create_node(void);
-void		add_node(t_stack **stack, t_stack *new_node);
+t_node	**create_list(char **strs, int is_onestr);
+t_node		*create_node(void);
+void		add_node(t_node **stack, t_node *new_node);
 
 void		exit_with_error(void);
-void		free_stack(t_stack **stack);
+void		free_stack(t_node **stack);
 
 #endif

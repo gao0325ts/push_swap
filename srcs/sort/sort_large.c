@@ -6,13 +6,13 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:00:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/08/29 17:15:01 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort_large(t_stack **a, t_stack **b)
+void	sort_large(t_node **a, t_node **b)
 {
 	t_info	*i;
 
@@ -35,7 +35,7 @@ void	sort_large(t_stack **a, t_stack **b)
 	free(i);
 }
 
-void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i)
+void	divide_to_blocks(t_node **a, t_node **b, t_info *i)
 {
 	int	range;
 
@@ -60,10 +60,10 @@ void	divide_to_blocks(t_stack **a, t_stack **b, t_info *i)
 		divide_to_blocks(a, b, i);
 }
 
-void	push_back_to_a(t_stack **a, t_stack **b, int max)
+void	push_back_to_a(t_node **a, t_node **b, int max)
 {
 	int		pushed;
-	t_stack	*target;
+	t_node	*target;
 
 	pushed = 0;
 	while (get_size(b) > 0)
@@ -89,7 +89,7 @@ void	push_back_to_a(t_stack **a, t_stack **b, int max)
 	}
 }
 
-void	handle_max_cases(t_stack **a, t_stack **b, int *max, int *pushed)
+void	handle_max_cases(t_node **a, t_node **b, int *max, int *pushed)
 {
 	pa(a, b, true);
 	(*max)--;
@@ -108,9 +108,9 @@ void	handle_max_cases(t_stack **a, t_stack **b, int *max, int *pushed)
 	}
 }
 
-bool	is_largest_near_top(t_stack **b, int max)
+bool	is_largest_near_top(t_node **b, int max)
 {
-	t_stack	*current;
+	t_node	*current;
 	int		i;
 	int		half_size;
 
