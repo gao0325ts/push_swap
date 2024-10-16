@@ -16,11 +16,11 @@
 # ifndef t_node_DEFINED
 #  define t_node_DEFINED
 
-typedef struct s_stack
+typedef struct s_node
 {
 	long long		rank;
 	int				value;
-	struct s_stack	*next;
+	struct s_node	*next;
 }					t_node;
 # endif
 
