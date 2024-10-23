@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:02:52 by stakada           #+#    #+#             */
-/*   Updated: 2024/10/22 19:29:04 by stakada          ###   ########.fr       */
+/*   Updated: 2024/10/23 19:34:45 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		sort_2(a);
 	else if (size == 3)
 		sort_3(a);
-	else if (size <= 16)
+	else if (size <= 8)
 		sort_mini(a, b);
 	else
 		sort_large(a, b);
